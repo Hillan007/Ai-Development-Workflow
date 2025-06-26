@@ -1,0 +1,44 @@
+1. Problem Definition (6 points)
+AI Problem: Identifying early signs of student burnout in online learning environments.
+Objectives:
+- Detect behavioral patterns that signal academic stress or disengagement.
+- Alert instructors or counselors to intervene proactively.
+- Provide personalized coping resources based on the student’s data.
+Stakeholders:
+- Online education platforms (e.g., Coursera, Edmodo)
+- Students and academic counselors
+Key Performance Indicator (KPI):
+Percentage of accurately identified at-risk students who receive timely interventions resulting in improved engagement.
+
+2. Data Collection & Preprocessing (8 points)
+Data Sources:
+- Learning Management System (LMS) logs (e.g., login frequency, assignment submissions)
+- Self-reported wellness surveys from students
+Potential Bias:
+Survey responses may be underreported due to stigma or fear of judgment, leading to skewed data on emotional states.
+Preprocessing Steps:
+- Handle missing survey responses using imputation methods (e.g., mean, KNN).
+- Normalize engagement metrics (like hours logged in) to ensure consistency.
+- Encode categorical variables (e.g., course type, student major) for model use.
+
+3. Model Development (8 points)
+Chosen Model: Random Forest Classifier
+Justification: It handles both numerical and categorical data, is interpretable, and performs well with imbalanced datasets (common in predicting rare outcomes like burnout).
+Data Split:
+- 70% for training
+- 15% for validation
+- 15% for testing
+Stratified splitting would ensure balanced class distribution across sets.
+Hyperparameters to Tune:
+- n_estimators – number of trees in the forest (balances speed and accuracy).
+- max_depth – controls model complexity and prevents overfitting.
+
+4. Evaluation & Deployment (8 points)
+Evaluation Metrics:
+- Precision: Measures how many of the flagged students were actually at risk (minimizes false alarms).
+- Recall: Captures how many at-risk students were correctly identified (minimizes missed cases).
+Concept Drift:
+It occurs when data patterns change over time (e.g., students behave differently during exam season).
+Monitoring: Implement periodic retraining with fresh data, and track accuracy over time to detect performance drops.
+Technical Challenge:
+Scalability – As student numbers grow, real-time predictions and alert delivery may strain resources. Solutions include deploying via serverless infrastructure (e.g., AWS Lambda) or containerizing the model with Kubernetes.
