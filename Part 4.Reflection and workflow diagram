@@ -1,0 +1,44 @@
+ ##Reflection (5 points)
+Most Challenging Part:
+The most challenging part of the workflow was data preprocessing and feature engineering. Clinical datasets, especially from EHRs, tend to be noisy, incomplete, and inconsistent. Handling missing values while preserving medical relevance was delicate. Creating meaningful features like “chronic condition flags” and “time since last admission” also required deep domain understanding and iterations to get right.
+Improvement with More Time/Resources:
+With more time and resources, I would:
+- Collaborate directly with clinicians for domain-specific feature insights
+- Integrate external datasets (e.g. social determinants of health) to enhance accuracy
+- Use automated ML pipelines and feature selection tools like FeatureTools or AutoML for faster experimentation and tuning
+
+## Workflow Diagram (5 points)
+Here’s a basic flowchart of the AI Development Workflow for the hospital readmission prediction project:
+          ┌────────────────────────┐
+          │ 1. Problem Definition  │
+          └──────────┬─────────────┘
+                     ↓
+          ┌────────────────────────┐
+          │ 2. Data Collection     │
+          └──────────┬─────────────┘
+                     ↓
+          ┌────────────────────────┐
+          │ 3. Data Preprocessing  │
+          └──────────┬─────────────┘
+                     ↓
+          ┌────────────────────────┐
+          │ 4. Feature Engineering │
+          └──────────┬─────────────┘
+                     ↓
+          ┌────────────────────────┐
+          │ 5. Model Development   │
+          └──────────┬─────────────┘
+                     ↓
+          ┌────────────────────────┐
+          │ 6. Model Evaluation    │
+          └──────────┬─────────────┘
+                     ↓
+          ┌────────────────────────┐
+          │ 7. Deployment          │
+          └──────────┬─────────────┘
+                     ↓
+          ┌────────────────────────┐
+          │ 8. Monitoring & Update │
+          └────────────────────────┘
+
+
