@@ -1,0 +1,58 @@
+1. Problem Scope (5 points)
+Problem:
+Hospitals experience frequent readmissions within 30 days of discharge, which increases healthcare costs and may indicate inadequate post-discharge care.
+Objectives:
+- Predict patients at high risk of readmission.
+- Enable proactive follow-up and care planning.
+- Improve patient outcomes and reduce hospital penalties.
+Stakeholders:
+- Hospital administrators and clinicians
+- Patients and their families
+
+2. Data Strategy (10 points)
+Proposed Data Sources:
+- Electronic Health Records (EHRs): diagnoses, lab results, visit history
+- Patient demographics: age, gender, location, insurance type
+- Discharge summaries and prior admission details
+- Prescription records and medication adherence
+Ethical Concerns:
+- Patient Privacy: Ensuring that sensitive data is encrypted and anonymized to prevent identification.
+- Bias and Fairness: Risk of biased predictions if the data disproportionately represents certain groups (e.g., elderly, low-income populations).
+Preprocessing Pipeline:
+- Missing Value Imputation – Fill gaps in lab results or demographics using median values or KNN imputation.
+- Normalization – Scale numeric features (e.g., lab results, age) using Min-Max scaling.
+- Feature Engineering:
+- Create binary flags for chronic diseases (e.g., diabetes, COPD)
+- Calculate time since last admission
+- Group medications into therapeutic categories
+- Encode discharge type (home, skilled nursing, etc.)
+
+3. Model Development (10 points)
+Model Selection:
+Gradient Boosting Machine (e.g., XGBoost) – Excellent for handling heterogeneous clinical data, non-linear interactions, and imbalanced classes. Also interpretable using SHAP values.
+Hypothetical Confusion Matrix:
+|  | Predicted: Readmit | Predicted: Not Readmit | 
+| Actual: Readmit | 80 | 20 | 
+| Actual: Not Readmit | 30 | 170 | 
+
+
+Precision:
+= TP / (TP + FP) = 80 / (80 + 30) = 0.727
+Recall:
+= TP / (TP + FN) = 80 / (80 + 20) = 0.80
+
+4. Deployment (10 points)
+Integration Steps:
+- Deploy the model as a REST API using FastAPI or Flask.
+- Connect to the hospital’s EHR system to retrieve data in real time.
+- Trigger predictions on discharge and log outputs in a secure dashboard.
+- Train staff to interpret predictions and take clinical actions.
+- Monitor and retrain the model periodically based on fresh data.
+Regulatory Compliance:
+- Encrypt data in transit and at rest.
+- Ensure user access is role-based and auditable.
+- Follow HIPAA compliance guidelines by performing regular risk assessments, maintaining data logs, and using secure data hosting providers.
+
+5. Optimization (5 points)
+Method to Address Overfitting:
+Early Stopping – While training the model (e.g., XGBoost), monitor validation loss and stop when performance stops improving. This prevents the model from learning noise in the training data.
