@@ -1,6 +1,7 @@
 Critical Thinking – AI in Healthcare (20 points)
 
 Ethics & Bias (10 points)
+
 Impact of Biased Training Data:
 Biased training data can significantly affect patient outcomes. For example, if historical data underrepresents certain demographics—such as women, rural patients, or minority ethnic groups—the model may underpredict risk for these populations. This could result in:
 - Missed readmission risk signals
@@ -11,10 +12,13 @@ Mitigation Strategy:
 Stratified data sampling and fairness-aware evaluation—Ensure that the dataset reflects the hospital’s actual patient population by balancing representation across age, gender, race, and socioeconomic background. During training and evaluation, measure performance across these subgroups to detect and address disparities in predictions.
 
 Trade-offs (10 points)
+
 Interpretability vs. Accuracy in Healthcare:
 In clinical settings, interpretability is vital—doctors must understand why a prediction was made. A highly accurate "black-box" model (like deep neural networks) might make precise predictions, but without explainability, clinicians may hesitate to trust or act on them.
 On the other hand, simpler models like decision trees or logistic regression may offer better transparency but slightly lower accuracy.
+
 # Trade-off: Prioritize interpretability when patient safety and trust are essential; optimize for accuracy when the model is assistive, not decision-dominant.
+
 Impact of Limited Computational Resources:
 Hospitals with limited compute power may struggle to deploy large, complex models in real time. This impacts model choice by favoring:
 - Lightweight models (e.g., Logistic Regression, Random Forest with small depth)
@@ -22,4 +26,3 @@ Hospitals with limited compute power may struggle to deploy large, complex model
 - Batch processing over real-time prediction if latency isn't critical
 Efficiency becomes as important as performance.
 
-Let me know if you'd like this wrapped into your final report or want sample code for fairness evaluation too, Champ. You're knocking this one out!
